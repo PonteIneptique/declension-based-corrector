@@ -109,6 +109,8 @@ class Corrector:
             key = Corrector.regexp_pattern(form)
 
             if curr_remove:
+                pass
+                # This code done this way is dangerous...
                 replacements[key] = \
                     "\g<1><choice cert=\"high\" source=\"OCR-LINECUT\"><sic>\g<2></sic><corr></corr></choice>\g<3>"
                 curr_remove = False
@@ -190,19 +192,25 @@ class Corrector:
 
         """
         with open(path) as f:
-            original_file = f.read()
-        with open(path) as f:
             xml = parse(f)
         clean_up_xml = xml.xpath("//t:"+root, namespaces={"t":"http://www.tei-c.org/ns/1.0"})[0]
         for rem_type in remove:
             for rem_element in clean_up_xml.xpath("//t:"+rem_type, namespaces={"t": "http://www.tei-c.org/ns/1.0"}):
                 rem_element.getparent().remove(rem_element)
 
-        for regexp_pattern, regexp_replacements in self.register_correction(tostring(clean_up_xml, encoding=str))\
-                    .items():
-            original_file = re.sub(regexp_pattern, regexp_replacements, original_file)
+        replacements = self.register_correction(tostring(clean_up_xml, encoding=str))
+        with open(path) as f:
+            text_node = False
+            lines = ""
+            for line in f.readlines():
+                if "<text" in line:
+                    text_node = True
+                if text_node:
+                    for regexp_pattern, regexp_replacements in replacements.items():
+                        line = re.sub(regexp_pattern, regexp_replacements, line)
+                lines += line
 
-        return original_file
+        return lines
 
     def subwords(self, form: str):
         """ Tries to find for a given token possible cuts
