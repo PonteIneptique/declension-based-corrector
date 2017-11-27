@@ -63,8 +63,10 @@ class Corrector:
                         print("Too much choice for " + form + " : " + ", ".join(proposed))
 
                     line = re.sub(
-                        "\W("+form+")\W",
-                        "<choice><sic>$1</sic>{}</choice>".format("".join("".format(cor) for cor in proposed)),
+                        "(\W)("+form+")(\W)",
+                        "\g<1><choice><sic>\g<2></sic>{}</choice>\g<3>".format(
+                            "".join(["<corr>{}</corr>".format(cor) for cor in proposed])
+                        ),
                         line
                     )
                     self.count_changes += 1
