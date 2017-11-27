@@ -1,9 +1,11 @@
 from pycollatinus import Lemmatiseur
 import re
 import itertools
+from lxml.etree import parse, tostring
 
 _match_tags = re.compile("(<.[^(><)]+>)")
 _match_words = re.compile("\W")
+_match_numbers = re.compile("\D")
 
 
 class Corrector:
@@ -75,6 +77,41 @@ class Corrector:
 
         return line
 
+    @staticmethod
+    def regexp_pattern(form):
+        return "(\W)("+form+")(\W)"
+
+    def register_correction(self, fulltext: str):
+        """ Marks words that needs to be corrected in a dict
+
+        :param fulltext: XML Text to analyze
+        :return: Dict of corrections
+        """
+        words = _match_tags.sub("", fulltext)
+        words = [w for w in _match_words.split(words) if w]
+        replacements = {}
+        for lemmatisation, form in zip(self.lemmatiseur.lemmatise_multiple(" ".join(words)), words):
+            key = Corrector.regexp_pattern(form)
+            if len(lemmatisation) == 0 and key not in replacements and _match_numbers.match(form):
+
+                proposed = self.propose_changes(form, []+self.changes)
+                if proposed:
+                    if len(proposed) == 1:
+                        print("Changing " + form + " to " + proposed[0])
+                    elif len(proposed) > 1:
+                        print("Too much choice for " + form + " : " + ", ".join(proposed))
+
+                    replacements[key] = \
+                        "\g<1><choice><sic>\g<2></sic>{}</choice>\g<3>".format(
+                            "".join(["<corr>{}</corr>".format(cor) for cor in proposed])
+                        )
+                    self.count_changes += 1
+                else:
+                    replacements[key] = "\g<1>\g<2>\g<3>"
+                    print(form + " not recognized")
+
+        return replacements
+
     def propose_changes(self, form: str, changes: list):
         modifications = []
         for source, target in changes:
@@ -84,8 +121,8 @@ class Corrector:
                 for combination in itertools.combinations_with_replacement(target+"_", cnt):
                     if target in combination:  # Makes sure we have at least one replacement
                         original = ""
-                        for word_before, replacement in zip(form.split(source), list(combination[0])+[""]):
-                            original += word_before + replacement
+                        for word_before, replacement in zip(form.split(source), list(combination)+[""]):
+                            original += word_before + replacement.replace("_", source)
                         current.append(original)
 
                 current += [
@@ -105,11 +142,31 @@ class Corrector:
             if len(lemmatisations)
         ]
 
+    def xml_corrector(self, path: str, remove=("note", ), root="body"):
+        """ This corrector methods removes nodes from text, retrieve words and then replace them
+
+        """
+        with open(path) as f:
+            original_file = f.read()
+        with open(path) as f:
+            xml = parse(f)
+        clean_up_xml = xml.xpath("//t:"+root, namespaces={"t":"http://www.tei-c.org/ns/1.0"})[0]
+        for rem_type in remove:
+            for rem_element in clean_up_xml.xpath("//t:"+rem_type, namespaces={"t": "http://www.tei-c.org/ns/1.0"}):
+                rem_element.getparent().remove(rem_element)
+
+        for regexp_pattern, regexp_replacements in self.register_correction(tostring(clean_up_xml, encoding=str))\
+                    .items():
+            original_file = re.sub(regexp_pattern, regexp_replacements, original_file)
+
+        return original_file
+
 if __name__ == "__main__":
     corrector = Corrector(changes=[
         ("s", "a"),
-        ("o", "c")
+        ("o", "c"),
+        ("e", "c")
     ])
     with open("output.xml", "w") as output:
-        output.write(corrector.read_file("./full_text.xml"))
+        output.write(corrector.xml_corrector("./full_text.xml"))
     print(str(corrector.count_changes) + " change(s) done")
