@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?><TEI xmlns="http://www.tei-c.org/ns/1.0">
+ <teiHeader>
+  <fileDesc>
+   <titleStmt>
+    <title>Corpus Scriptorum Ecclesiasticorum Latinorum (CSEL)</title>
+    <sponsor>University of Leipzig</sponsor>
+    <funder>European Social Fund Saxony</funder>
+    <principal>Gregory Crane</principal>
+    <respStmt>
+     <persName xml:id="Jouve">Jouve</persName>
+     <resp>OCR-ed, corrected and encoded the text</resp>
+    </respStmt>
+    <respStmt>
+     <persName>Greta Franzini</persName>
+     <resp>Project Manager (University of Leipzig)</resp>
+    </respStmt>
+    <respStmt>
+     <persName>Simona Stoyanova</persName>
+     <resp>Project Assistant (University of Leipzig)</resp>
+    </respStmt>
+    <respStmt>
+     <persName>Bruce Robertson</persName>
+     <resp>Technical Advisor (Mount Allison University)</resp>
+    </respStmt>
+    <respStmt>
+     <persName>Uvius Fonticola</persName>
+     <resp>Technical Advisor (Ludwig Maximilians University Munich)</resp>
+    </respStmt>
+   </titleStmt>
+
+   <publicationStmt>
+    <authority>University of Leipzig</authority>
+    <idno type="filename">CSEL23.xml</idno>
+    <availability>
+     <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence>
+    </availability>
+    <date>2014</date>
+    <publisher>University of Leipzig</publisher>
+    <pubPlace>Germany</pubPlace>
+   </publicationStmt>
+
+   <sourceDesc>
+    <listBibl xml:lang="lat">
+     <biblStruct>
+      <monogr>
+       <editor>
+        <persName>
+         <name xml:lang="lat">Rudolfus Peiper</name>
+         <addName xml:lang="de">Rudolf Peiper</addName>
+        </persName>
+       </editor>
+       <author ref="http://data.perseus.org/catalog/urn:cite:perseus:cattg.1733.1">Cyprianus</author>
+       <title ref="http://data.perseus.org/catalog/urn:cts:latinLit:stoa0104c.stoa001">Heptateuchos</title>
+       <imprint>
+        <publisher>Österreichische Akademie der Wissenschaften (ÖAW)</publisher>
+        <pubPlace>Wien, Österreich</pubPlace>
+        <date>1891</date>
+       </imprint>
+       <biblScope unit="volume">23</biblScope>
+      </monogr>
+      <ref target="http://archive.org/stream/corpusscriptoru12wiengoog#page/n5/mode/2up">Internet Archive</ref>
+
+     </biblStruct>
+    </listBibl>
+   </sourceDesc>
+
+  </fileDesc>
+  <encodingDesc>
+   <p>The following text is encoded in accordance with EpiDoc standards and with the
+    CTS/CITE Architecture.
+   </p>
+   <refsDecl n="CTS">
+    <cRefPattern n="chapter" matchPattern="(.+).(.+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1']/tei:div[@n='$2'])"/>
+    <cRefPattern n="book" matchPattern="(.+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1'])"/>
+   </refsDecl>
+  </encodingDesc>
+
+  <profileDesc>
+   <langUsage>
+    <language ident="lat">Latin</language>
+   </langUsage>
+  </profileDesc>
+
+ </teiHeader>
+ <text>
+  <body>
+   <div type="edition" xml:lang="lat" n="urn:cts:latinLit:stoa0149b.stoa001.opp-lat1">
+             <head>
+            <title type="main">TRACTATUS SANCTI HILARII EPISCOPI PICTAUIENSIS SUPER PSALMOS. </title>
+          </head>
+          <p>
+
+<note type="footnote">1- 3 sic <hi rend="italic">B7</hi> Y <hi rend="italic">h. l. deest-</hi></note>
+
+<note type="footnote"> XXII. Hillar. Piet. pars. I. </note>
+
+<note type="footnote"> 1 </note>
+<pb n="-"/>
+
+<pb n="3"/>
+
+</p>
+    <div type="textpart" subtype="book" n="pr">
+          <head>
+            <title type="main">INSTRUCTIO PSALMORUM. </title>
+          </head>
+
+
+
+<div type="textpart" subtype="chapter" n="1">
+<p>Diuersas esse plurimorum in psalmorum libro opiniones, ex  <lb/>
+            libris ipsis, quos scriptos reliquerunt, compertum habemus. nam <lb/>
+            aliqui eos Hebraeorum in quinque libros diuisos uolunt esse, ut sit <lb/>
+            usque in quadragesimum psalmum liber primus et a quadragesimo<lb n="5"/>
+            usque in septuagesimum primum liber secundus et ex eo usque in <lb/>
+            octogesimum octauum liber tertius et usque in centesimum quintum <lb/>
+            liber quartus — ob quod hi omnes psalmi in consummatione sua <lb/>
+            habeant, fiat, fiat —, concludatur deinde in centesimo quinquagesimo <lb/>
+            psalmo liber quintus. alii uero ita inscribendos psalmos<lb n="10"/>
+            existimauerunt: psalmi Dauid, quo titulo intellegi uolunt, <lb/>
+            eos omnes a Dauid fuisse conscriptos. sed nos secundum <lb/>
+            apostolicam auctoritatem librum psalmorum et nuncupamus <lb/>
+            et scribimus. ita enim in Actis apostolorum dictum meminimus: <lb/>
+            scriptum est enim in libro psalmorum: fiat domus <lb n="15"/>
+            eius deserta, et episcopium eius accipiet alius. ergo
+
+<note type="footnote"> 12 Act. ap. I, 20. </note>
+
+<note type="footnote"> <hi rend="italic">1 sic V in seq. superscriptionibus cf. Acad. p. 49, om. R</hi> 2 diuersas <lb/>
+            <hi rend="italic">RrDa</hi> oarias ae plurimorum <hi rend="italic">RDE</hi> plurium <hi rend="italic">r</hi> in <hi rend="italic">R de rDE</hi> oppinionea <hi rend="italic">R</hi> <lb/>
+            a reliquerunt <hi rend="italic">RrD</hi> reliquere <hi rend="italic">E</hi> 4 eos Hebraeorum <hi rend="italic">R</hi> Hebraeorum <lb/>
+            eos <hi rend="italic">rDE</hi> ut sit usque <hi rend="italic">RDE</hi> ut usque r 5 liber primus <hi rend="italic">RDE</hi> sit <lb/>
+            liber primus r 6 ex eo <hi rend="italic">Rrd2<foreign xml:lang="grc">α</foreign></hi>. ab eo <hi rend="italic">dl</hi> usque in <hi rend="italic">rD</hi> usque <hi rend="italic">R</hi> usque <lb/>
+            ad <hi rend="italic">e (cf. v. 7)</hi> 7 quintum <hi rend="italic">RDE</hi> quartum <hi rend="italic">r</hi> 8 ob quod <hi rend="italic">RE</hi> ob hoc quod <hi rend="italic">r</hi> ob <lb/>
+            hoc <hi rend="italic">cP</hi> ob haec <hi rend="italic">d1</hi> 9 in centesimo quinquagesimo psalmo <hi rend="italic">DE</hi> in centesimum <lb/>
+            quinquagesimum psalmum <hi rend="italic">R</hi> centesi *** <hi rend="italic">(sequitur lacuna usque ad uerba</hi> <lb/>
+            episcopium eius) r 10 ita scribendos <hi rend="italic">R</hi> 11 <hi rend="italic">inter</hi> uolunt <hi rend="italic">et</hi> eos <hi rend="italic">raR. <lb/>
+             C-7 litt. R</hi> 12 acdum (dum <hi rend="italic">in ruptura pergam.), in marg.:</hi> secuti <hi rend="italic">m. 2 R</hi> <lb/>
+            16 episcopium eius <hi rend="italic">scripsi (cf. Paucker suppl. lex. lat. p. 240 et<lb/>
+             Arch. II., 604)</hi> episcopon eius <hi rend="italic">R</hi> episcopatum eius <hi rend="italic">DE.*</hi> conpetentios <lb/>
+            r accipiet <hi rend="italic">R</hi> aocipiat <hi rend="italic">rDE</hi> alius <hi rend="italic">(post</hi> alius <hi rend="italic">spatium 3-4 litt. <lb/>
+             in fine lin.) R</hi> aliter r alter <hi rend="italic">DE</hi>. </note>
+
+<note type="footnote">I* </note> <lb/>
+
+<pb n="4"/>
+            neque secundum quosdam Hebrseos quinque libri, neque secundum <lb/>
+            aliorum simplicitatem psalmi Dauid dicendi sunt, sed secundum <lb/>
+            apostolicam auctoritatem liber psalmorum esse noscendus est.
+</p>
+
+</div>
+
+<div type="textpart" subtype="chapter" n="2">
+<p>Sunt autem plures eorundem psalmorum scriptores. <lb/>
+            nam aliquibus Dauid auctor praescribitur, in aliquibus Salomon, <lb n="5"/>
+            in aliquibus Asaph, in aliquibus Idith um, in aliquibus <lb/>
+            filiorum Chore, in aliquo Moyses. et quidem absurdum <lb/>
+            est psalmos Dauid nominare, cum ibi auctores eorum ipsis <lb/>
+            inscriptionum titulis commendentur. et liber psalmorum <lb/>
+            rectius esse dicatur, diuersis in unum uolumen prophetiis diuersorum <lb n="10"/>
+            et auctorum et temporum congregatis. visum autem <lb/>
+            aliquibus est Hieremise et Aggsei et Zacharise quorundam psalmorum <lb/>
+            superscriptionibus nomina praenotare, cum horum nihil <lb/>
+            in authenticis septuaginta translatorum libris ita editum reperiatur, <lb/>
+            adeo ut etiam in plurimis latinis et graecis codicibus sine <lb n="15"/>
+            horum nominibus simplices tantum psalmorum tituli praeferantur.
+</p>
+
+</div>
+
+<div type="textpart" subtype="chapter" n="3">
+<p>De his autem, qui sine diuersorum auctorum nominibus <lb/>
+            sub diuersis superscriptionibus habentur, antiquorum uirorum <lb/>
+            ista traditio est, quod ex eo psalmo, cuius auctor in superscriptione <lb/>
+            ponitur, qui deinceps sine auctorum superscriptione succedunt, <lb n="20"/>
+            illius esse existimandi sunt, qui anterioris psalmi auctor <lb/>
+            inscribitur, usque in eum psalmum, in quo nomen auctoris
+
+<note type="footnote" rend="script">1 secundum aliorum <hi rend="italic">R</hi> secundum pluriii <hi rend="italic">r</hi> secundum plurimorum <hi rend="italic">DE</hi> <lb/>
+            2 Dauit <hi rend="italic">R</hi> 5 nam aliquibus <hi rend="italic">Rdte</hi> nam in aliquibus <hi rend="italic">rd1</hi> tamquam <lb/>
+            rii <lb/>
+            Dauid r 6 idithun r idichun <hi rend="italic">R</hi> 7 filio chore <hi rend="italic">R</hi> filii chore rf1 <lb/>
+            moses <hi rend="italic">R</hi> moyse <hi rend="italic">m. 1 r</hi> Mosi a Moysi. et quidem <hi rend="italic">R</hi> ex quo <hi rend="italic">rlJE</hi> <lb/>
+            e <lb/>
+            8 nominare <hi rend="italic">(in marg. add</hi>. dicer uel) <hi rend="italic">R</hi> cognominare <hi rend="italic">rd' E</hi> cognominari <lb/>
+            <hi rend="italic">d1</hi> cum ibi <hi rend="italic">R</hi> cum tot <hi rend="italic">rDE</hi> 9 commendentur <hi rend="italic">R</hi> edantur <hi rend="italic">rDE</hi> <lb/>
+            et laber <hi rend="italic">R</hi> 10 dicatur <hi rend="italic">R</hi> dicetur <hi rend="italic">rDE</hi> in <hi rend="italic">supr. add. m. 1 R</hi> progatia <lb/>
+            hil <lb/>
+            phetis r 11 congre <hi rend="italic">R</hi> 13 suprascriptionibus r ni <hi rend="italic">R</hi> 14 ita dictum <lb/>
+            r <lb/>
+            d1 a repperiatu <hi rend="italic">R</hi> 15 sine <hi rend="italic">ex</hi> sint <hi rend="italic">R</hi> 16 pferantur <hi rend="italic">R</hi> 17 qui sub (sub <lb/>
+            <hi rend="italic">in marg.) R</hi> diuersorum <hi rend="italic">om. re</hi> auctorum <hi rend="italic">om. R</hi> 18 antiquorum <lb/>
+            ' <lb/>
+            latinorum <hi rend="italic">H, sed cf. infr. p. o, 2.i</hi> 20 ponitur <hi rend="italic">R (cf. infr. p. o, 4)</hi> <lb/>
+            praeponitur <hi rend="italic">rDE</hi> quae deinceps <hi rend="italic">R</hi> 21 illiu' <hi rend="italic">R</hi> eius <hi rend="italic">rDE</hi> existimant! <lb/>
+            ante prioris psalmi <hi rend="italic">R, sed cf. infr. p. 5, o</hi> 22 usque eum <hi rend="italic">R</hi> in <lb/>
+            quo <hi rend="italic">rd* (cf. infr. p. 16, 10)</hi> quo <hi rend="italic">RtPe</hi> auctoris alterius <hi rend="italic">R</hi> alterius <lb/>
+            auctoris <hi rend="italic">re</hi> alicuius auctoris <hi rend="italic">d1</hi> auctoris alicuius «. </note> <lb/>
+
+<pb n="5"/>
+            alterius prseferatur: ut si psalmi alicuius superscriptio talis sit: <lb/>
+            psalmus Dauid, ceteri, qui sine titulo consequantur, Dauid <lb/>
+            esse credantur, donec cum prophetae alterius nomen in superscriptione <lb/>
+            ponatur; et ex eo usque in alterum prophetam, qui <lb/>
+            sine inscriptione medii sunt, eius sint, qui in anterioris psalmi<lb n="5"/>
+            superscriptione auctor c“ptus sit anteferri.
+</p>
+
+</div>
+
+
+</div></div>
+
+  </body>
+ </text>
+</TEI>
